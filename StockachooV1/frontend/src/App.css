@@ -1,0 +1,920 @@
+/*  ===== MOBILE styles (reside at the top and are inherited by all devices) ===== */
+/*  ===== See tablet, desktop, and print @media queries at the bottom. */
+
+
+/*   ----- Imports  -----  */
+  /* @import 'node_modules/modern-normalize/modern-normalize.css';  npm install modern-normalize  Resets elements for browser consistency.  https://www.npmjs.com/package/modern-normalize */         
+  /* @import "component1.css";   Component-specific stylesheets, if any.   */
+  /*@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); 
+  /* Heading font: Poppins from Google Fonts. */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@600&family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&family=Lemonada:wght@600&family=Roboto&display=swap');
+
+
+/*   ----- Variables  -----  */
+/* Colors based off of the background picture for the page */
+:root {
+    --black: #000000; /* Black color used for text */
+    --blue: #24516B; /* Background color in each of the pages */
+    --white: #FFFFFF;
+    --gray: #D9D9D9; /* Gray inner border */
+    --tan: rgba(242, 220, 194, 0.6);
+    
+  }
+  
+  /*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+  body {       /* Can alternatively define in html {}. */
+    background-color: var(--blue); /* Include for when scrolling off page */
+    /*background-image:url(images/oahu-mountain-background-2022.jpg); */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    background-repeat:no-repeat;
+
+    color: var(--black);
+    font-family: 'Jacques Francois', sans-serif; 
+    font-size: 1em; /* Set size by inheritance */
+    line-height: 1.2;
+    margin: 0 auto; /* To adjust when window collapses to smaller sizes */
+    padding: 0;
+    max-width: 960px;
+  }
+
+  
+  /*  ----- Page layout blocks -----  */
+  header {
+    background-color: var(--white);
+    margin: 10px 0 0 0 ;
+    padding: .5%;
+    /*border: 2px solid var(--gray); */
+    font-size: 2em;
+    font-weight:bold;
+    height: 130px;
+    display: flex;
+    justify-content: left;
+    width:auto;
+    align-items: center;
+  }
+
+  header img {
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: 20px;
+    margin-right: 180px;
+  }
+
+  /* HEADER adding HELP ICON */
+
+  .needHelp {
+    padding-left: 80px; 
+    background-image: url('images/need_help.png'); 
+    background-size: 90px; 
+    background-repeat: no-repeat;
+    background-position: 5px center; 
+    margin-bottom: 50px;
+    margin-left: 60px;
+  }
+
+  /* Set the formatting for main */
+  main {
+    background-color: var(--blue);  
+    margin: 0;
+    padding:0%;
+    border: 2px solid var(--blue);
+  }
+  /* PARAGRAPH FOR INSTRUCTIONS */
+  .instructions {
+    text-align: left;
+    font-size: .9em;
+  }
+  /* Styles for STOCK PICKS PAGE */
+  .outer-container2 {
+    background-color: var(--gray);
+    margin: 0;
+    padding: 0%;
+    
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+}
+
+/* Styles for INNER LOGIN BOX */
+.outer-container2 {
+    background-color: var(--gray);  
+    padding: 2.5%; 
+    border-radius: 15px; /* Use this for rounded corners */
+    border: 1.5px solid var(--black);
+    margin: auto;
+    text-align: center;
+    max-width: 525px;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+/* Styles for login form elements */
+.outer-container2 label,
+.outer-container2 input,
+.outer-container2 a,
+.outer-container2 button {
+    margin: .5em 0; /* Adjust the vertical margin between elements */
+}
+.input-group {
+  margin-bottom: 10px; /* Adjust spacing between groups */
+}
+.stock123 {
+  font-size: 1.3em;
+}
+
+.input-group1 input {
+  display: inline;
+
+}
+
+
+/* Styles for login form elements */
+.outer-container2 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Left-align the content */
+  margin-bottom: 10px; /* Adjust spacing between elements */
+}
+
+.outer-container2 label {
+  margin-bottom: 5px; /* Adjust vertical spacing between label and input */
+}
+
+/*************************/
+/* Styles for LOGIN BOX */
+.outer-container {
+    background-color: var(--blue);
+    margin: 0;
+    padding: 0% 17% 0 17%;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;
+}
+
+/* Styles for INNER LOGIN BOX */
+.inner-container {
+    background-color: var(--gray);  
+    padding: 2.5%; 
+    border-radius: 15px; /* Use this for rounded corners */
+    border: 1.5px solid var(--black);
+    margin: auto;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+/* Styles for login form elements */
+.inner-container label,
+.inner-container input,
+.inner-container a,
+.inner-container button {
+    margin: .5em 0; 
+    
+}
+
+/* Styles for login form elements */
+.inner-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-bottom: 10px; 
+}
+
+.inner-container label {
+  margin-bottom: 5px; 
+}
+
+/* PASSWORD ICON */
+.input-container {
+  position: relative;
+  width: 300px; 
+}
+
+#password {
+  padding-left: 30px; 
+  background-image: url('images/password_icon.png'); 
+  background-size: 20px; 
+  background-repeat: no-repeat;
+  background-position: 5px center; 
+}
+
+/* USER ICON */
+#username {
+  padding-left: 30px; 
+  background-image: url('images/user_icon.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 5px center; 
+}
+
+
+/* FORGOT PASSWORD ICON */
+.forgot-password {
+  right: 0;
+  background-image: url('images/right_arrow.png'); 
+  background-size: 20px; 
+  background-repeat: no-repeat;
+  background-position: right center; 
+  padding-right: 25px; 
+  text-decoration: none;
+  color: var(--black);
+}
+
+.forgot-password:hover {
+  color: #333; /* Set hover color */
+}
+/* STYLES for POP-UP Button */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  margin-right: 10px;
+}
+
+/* Styles for FAQ Page */
+.faq {
+  text-align: left;
+}
+.faq2 {
+  text-align: left;
+}
+
+   /* Align the center and set the font-size for the Gallery page */
+  .gallery-main{
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  .order-main{
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  .staff-main{
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  .staffClass {
+    text-align: left;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .staffClass p {
+    margin-top: 10px;
+    width: 500px;
+  }
+
+/* ASIDE for the STAFF Page */
+  aside {
+    margin-top: 10px;
+    margin-left: auto;
+    width: 360px;
+    text-align: center;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 2px solid darkblue;
+  }
+
+  aside p {
+    text-align: left;
+    box-sizing: border-box;
+    margin: auto;
+    width: 360px;
+    font-size: 1em;
+    padding: 1%;
+  }
+  
+
+  /* Align the center and set the font-size for the Contact page */
+  .contact-main{
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  /* Create a light-green background for the response form */
+  .contact-reponse{
+    background-color: var(--blue);
+  }
+
+  /* Left align the paragraphs in the response form */
+  .contact-response p{
+    text-align: left;
+  }
+
+  /* Reduce the margin between the description and contact form */
+  .contacts{
+    margin-bottom:-30px;
+  }
+
+  /* Set the section to light-green */
+  section {
+    background-color: var(--blue);
+    padding: 2%;
+  }
+
+  article {
+    margin-top: 20px;
+    border-top: 2px solid var(--blue);
+  }
+
+    #topic1 {}
+    #topic2 {}
+  div {}
+
+
+  /* Style and formatting for the footer */
+  footer {
+    background-color: var(--white);
+    margin: 20px 0 20px 0 ;
+    padding: 1.5px;
+    border: 2px solid var(--white);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4em;
+  }
+  
+  /* ----- Anchors ----- Text links */
+  a {}
+  /* Set the color to tan for link */
+  a:link {
+    color: var(--black);
+    text-decoration: none; 
+    
+  }
+  /* Use tan and aqua for hover */
+  a:hover {
+    color: var(--tan);
+    
+  }
+  a:active {}
+  a:visited {}
+  
+  /*  ----- Navigation ----- Override text links for navigation only.  */
+  nav {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+    
+  }
+  /* Styles for Nav Bar */
+  nav a {
+    font-family: 'Lemonada', sans-serif;
+    background-color: var(--gray);
+    border: 1.5px solid var(--black);
+    border-radius: 5px 5px  0 0;
+    color: var(--blue);
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 1;
+    margin-right: 3px;
+    padding: 8px 50px;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+  /* Styles for when hovering over nav bar */
+  nav a:hover {
+    background-color: skyblue;
+    color: darkblue;
+  }
+
+  /* Navigation for local class tag */
+.local {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the start of the container */
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  max-height: 60px; /* Maximum height for two rows (height + margin) */
+}
+
+
+/* Navigation for local class tag */
+  a.local {
+    background-color: #05A;
+    border: 2px solid darkblue;
+    border-radius: 3px;
+    color: var(--tan);
+    font-size: 0.75em;
+    font-weight: bold;
+    line-height: 1;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    
+    padding: .5%;
+    text-decoration: none;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Navigation hover for local */
+  a.local:hover {
+    background-color: skyblue;
+    color: darkblue;
+  }
+  
+  /*  -----  Typography  ----- */
+  p {}
+  br {}
+  ol, ul, dl {}
+  li {}
+  dt {}
+  dd {}
+  
+  /* Global styles for headers */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Jacques Francois', sans-serif;
+  } 
+  /* Control the Banner's styles */
+  h1 {
+    font-family: 'Lemonada', sans-serif;
+    color: var(--blue);
+  }
+  h2 {}
+  h3 {}
+  h4 {}
+  h5 {}
+  h6 {}
+  
+  abbr {}
+  acronym {}
+  address {}
+  blockquote {}
+    q {}
+    cite {}
+  em {}
+  hr {}
+  mark {}
+  s {}
+  span {}
+  strong {}
+  sub {}
+  sup {}
+  time {}
+  
+  /*  ----- Coding or instructional typography ----- */
+  pre {}
+  code {}
+  kbd {}
+  samp {}
+  var {}
+  del {} 
+  ins {}
+  
+  /*  ----- Table ----- */
+  table {}
+  caption {}
+  thead {}
+  tbody {}
+  tfoot {}
+  tr {}
+    tr:nth-child(even) {}
+  th {}
+  td {}
+    td:nth-child(1) {}
+  colgroup {}
+  data {}
+  datalist {}
+
+  
+  /*  ----- Form ----- */
+  /* Configure the styles for the contact form */
+  form {
+    background-color: var(--blue);
+    color: var(--black);
+    font-weight: bold;
+    padding: 1%;
+
+  }
+  /* Set a tan color for the border of the fieldset */
+  fieldset {
+    text-align: left;
+    border: 2px solid var(--tan);
+    margin: 1%;
+
+  }
+  
+  /* Set the text color for the legend to dark blue and style it */
+  legend {
+    color:darkblue;
+    padding: .5%;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  /* Set the label color to dark-green */
+  label {
+    margin-top: 10px;
+    color: var(--black);
+    font-weight: normal;
+  }
+  /* Set the labels to bold */
+  label.required{
+    font-weight: bold;
+  }
+  /* Set label with class feedbacktext to bold */
+  label.feedbacktext{
+    font-weight: bold;
+  }
+  /* Set label with class feedbacktext to bold */
+  label.moreinfo{
+    font-weight: bold;
+  }
+
+
+  /* Configure style settings for the submission button */
+  button {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 0% 3% 0 3%;
+    border: 1.5px solid var(--black);
+    font-weight: bold;
+    font-family: 'Jacques Francois';
+    font-size: 1.2em;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 220px;
+    text-shadow: -1px -1px 0 var(--black),  
+                 1px -1px 0 var(--black),  
+                 -1px 1px 0 var(--black),  
+                 1px 1px 0 var(--black); /* This creates a black outline around the text */
+  }
+
+  /* Add a hover option that inverts the colors */
+  .sbutton:hover{
+    background-color: var(--black);
+    color: skyblue;
+    cursor: pointer;
+  }
+  /* Configure style settings for input */
+  input {
+    background-color: var(--white);
+    *::placeholder{color: var(--white)};
+    padding: 0.5%;
+    border: 1px solid var(--black);
+    :focus{background-color: var(--blue);}
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    label.required:after {
+      content: ' *'; 
+      color: red;     
+    }
+    border: 1px solid var(--blue);
+  }
+/* Configure radioClass such that the options are displayed inline */
+.radioClass {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Configure checkClass such that the options are displayed inline */
+.checkClass {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* PET TABLE Styles */
+/* Configure the column spacing for the order form table */
+#petTable {
+  border-collapse: collapse;
+  border-spacing: 10px;
+  margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+}
+
+
+/* Configure order form radio buttons such that they are displayed inline */
+#petTable input[type = "radio"] {
+  display: inline-block;
+  margin-right: 5px;
+  width: 100%;
+  
+}
+
+/* Configure the caption element such that it is left-aligned */
+#petTable caption {
+  text-align: left;
+  padding: .5% 0;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Configure column headers in the order form table */
+#petTable thead th {
+  font-weight: bold;
+  font-size: 1.3em;
+  height: 35px;
+  text-align: center;
+  width: 14%;
+  
+}
+
+/* Style the lines between rows */
+#petTable tr td {
+  min-width: 140px;
+  border-bottom: 2px solid darkblue;
+  padding: 1%;
+  font-size: .8em;
+  font-weight: 400;
+}
+
+/* Style the background of the column headers */
+#petTable tr th {
+  background-color: var(--tan);
+  padding:.5%;
+  min-width: 140px;
+  min-width: 14%;
+}
+
+/* Align the prices in the middle */
+#petTable td:nth-child(3) {text-align:center;}
+#petTable td:nth-child(5) {text-align:center;}
+#petTable td:nth-child(6) {text-align:center;}
+
+
+
+/* Configure article NEW styles */
+ .newHeaders {
+  font-family: 'Jacques Francois', sans-serif;
+  font-size: 1.8em; 
+  text-align: center ;
+}
+
+.baseHeaders {
+  font-family: 'Jacques Francois', sans-serif;
+}
+
+ .newArticles p {
+  font-family: 'Jacques Francois', sans-serif;
+  font-size: 1.1em;
+}
+
+.legend {
+  font-size: 1.7em;
+}
+
+.add-travels {
+  font-family: 'Jacques Francois', sans-serif;
+  font-size: 1.3em;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Add this line to center the children horizontally */
+  align-items: center; 
+  border: 1px solid var(--tan);
+  
+}
+
+/* Styles for EDITTRAVELPAGETABLE */
+
+#submit {
+  padding: 10%;
+}
+
+/* Style the input fields */
+input {
+  width: 180px;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+#submit:hover {
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Configure the label for quantity and add margin above and below */
+#captionClass {
+  margin-top: 30px; /* Add margin above the label */
+  margin-bottom: 30px; /* Add margin below the label */
+}
+
+/* STAFF TABLE Styles */
+/* Configure the column spacing for the order form table */
+#staffTable {
+  border-collapse: collapse;
+  border-spacing: 15px;
+  margin-bottom: 40px;
+}
+
+table img {
+  margin-left:auto;
+  margin-right: auto;
+  border: 1px solid var(--black);
+  width: 120px;
+}
+
+/* Configure style settings for staff button */
+.staffButton{
+  background-color: skyblue;
+  color: var(--black);
+  padding: 1.5%;
+  border: 2px solid var(--black);
+  font-weight: bold;
+  font-size: 1.2em;
+  display:inline;
+  justify-content: left;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.staffButton:hover{
+  background-color: var(--black);
+  color: skyblue;
+  cursor: pointer;
+}
+
+/* Configure the caption element such that it is left-aligned */
+#staffTable caption {
+  text-align: left;
+  padding: .5% 0;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Configure column headers in the order form table */
+#staffTable thead th {
+  font-weight: bold;
+  font-size: 1.1em;
+  height: 35px;
+  text-align: center;
+  width: 260px;
+}
+
+/* Style the lines between rows */
+#staffTable tr td {
+  min-width: 180px;
+  border-bottom: 2px solid darkblue;
+  padding: 1%;
+  font-size: .8em;
+  font-weight: 400;
+  justify-content: center;
+}
+
+/* Style the background of the column headers */
+#staffTable tr th {
+  background-color: var(--tan);
+  padding:.5%;
+  min-width: 200px;
+}
+
+/* Align all elements in the table such that they are centered */
+#staffTable td {
+  text-align:center;
+}
+
+/* Configure Styles for the REACT ICONS */
+ .iconSize {
+  font-size: 20px;
+}
+
+  /* Configure style settings for the dropdown bar */
+  select {
+    background-color: skyblue;
+    color: var(--black);
+    padding: 0.5%;  
+    border: 1px solid var(--black);
+    font-size: 1em;
+    border-radius: 5px;
+    margin: 10px 10px 10px 10px;
+  }
+    optgroup {}
+    option {}
+
+  /* Configure style settings for textarea for user input */
+  textarea {
+    background-color: var(--tan);
+    *::placeholder{color: var(--white)};
+    padding: 1%;
+    border: 1px solid var(--black);
+    :focus{background-color: var(--blue);}
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 500px;
+    height: 80px;
+    border: 1px solid var(--blue);
+
+  }
+  output {}
+  meter {}
+  progress {}
+
+  /* Configure left-align style for contacts class in main*/
+  .contacts{
+    text-align: left;
+  }
+  
+  
+  /* ----- Media ----- */
+  /* Width specifications for images */
+figure {}
+figcaption {}
+figure img {}
+
+  svg {}
+  picture {}
+    source {}
+  iframe {}
+  video {}
+  audio {}
+  embed {}
+  object {}
+  
+  /*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+/* Here we use display: flex and row wrap to ensure the images display on the same row */
+.gallery { 
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.gallery figure {
+  width: 320px;
+  margin:.75%;
+  padding:0;
+  
+}
+
+.gallery img {
+  width: 100%;
+  border: 1px solid var(--tan);
+}
+
+.gallery figcaption {
+  border: 1.5px solid var(--blue);
+  background-color: var(--tan);
+  text-align: center;
+  font-size: .7em;
+  display: block;
+  padding: 1%;
+}
+
+  .floatright {}
+  .floatleft {}
+  .center-middle {}
+  
+  .ten {}
+  .twenty {}
+  .thirty {}
+  .forty {}
+  .fifty {}
+  .sixty {}
+  .seventy {}
+  .eighty {}
+  
+  .radius {}
+  .circle {}
+  .boxshadow {}
+  .tshadow {} 
+  .gradient {}
+  .shape {}
+  
+  @keyframes App-logo {}
+  
+  /*   ===== TABLET  media query overrides mobile styles ===== */
+  @media all and (min-width: 600px) {}
+  
+  /*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+  @media all and (min-width: 1080px) {}
+  
+  /*   ===== PRINT  media query overrides previous styles =====  */
+  @media print {}

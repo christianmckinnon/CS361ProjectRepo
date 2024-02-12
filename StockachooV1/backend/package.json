@@ -1,0 +1,20 @@
+{
+  "name": "travel-experience-backend",
+  "version": "2023",
+  "description": "The backend for some of my travel experiences.",
+  "main": "travel-controller.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon travel-controller.mjs"
+  },
+  "author": "Christian McKinnon",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^6.9.1",
+    "nodemon": "^3.0.1",
+    "rest": "^2.0.0"
+  }
+}
