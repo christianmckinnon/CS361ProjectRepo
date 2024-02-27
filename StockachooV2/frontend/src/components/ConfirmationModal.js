@@ -1,3 +1,4 @@
+// A page used to faciliatee our Confirmation pop-up and add HTML / Styles
 import React from 'react';
 
 

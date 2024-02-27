@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 // JS Code to enable HTML
 function HomePage() {
     return (
-        <div class="outer-container">
-            <div class="inner-container">
+        <div className="outer-container">
+            <div className="inner-container">
                 <h2>Login to your account</h2>
                 <div>
                     <label for="username">Username:</label>
@@ -17,7 +17,7 @@ function HomePage() {
                     <input type="password" id="password" placeholder="Type your password" />
                 </div>
                 <div>
-                <a href="/travel-journal" class="forgot-password">Forgot password?</a>
+                <a href="/travel-journal" className="forgot-password">Forgot password?</a>
                 </div>
                 <div>
                 <Link to="/topics-page">
@@ -28,4 +28,4 @@ function HomePage() {
         </div>
     );
 }
-export default HomePage;  {/* Should match the function above */}
+export default HomePage; 

@@ -6,34 +6,32 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import './App.css';
 
-// Import pages you have completed:
-// Home, Topics, Gallery, Contact, and Staff Pages 
+
+// Home, TopicsPage, and Summary
 import HomePage from './pages/HomePage';
 import TopicsPage from './pages/TopicsPage';
+import Summary from './pages/Summary';
 
 // Not sure whether this is necessary or not
-import TravelJournal from './pages/TravelJournal';
 import TravelsPage from './pages/TravelJournal';
 
 
-// For Create and Edit, use the form OR table design; not both.
-// If your schema requires LONG data input, then use the FORM design:
-//import AddMoviePageForm from './pages/AddTravelPageForm';
-//import EditMoviePageForm from './pages/EditTravelPageForm';
-
-// If your schema requires SHORT data input, then use the TABLE design.
-import EditTravelPageTable from './pages/EditTravelPageTable';
-import AddTravelPageTable from './pages/AddTravelPageTable';
 
 // Define the function that renders the content in Routes, using State.
 function App() {
 
   const [travel, setTravelToEdit] = useState([])
 
+  if (!travel) {
+    // If travel is falsy, you can log an error message or take any other action
+    console.error('Travel is falsy!');
+    // You can add more actions here if needed
+  }
   return (
     <>
       <BrowserRouter>
           {/* Place the header with Project Description */}
+          
           <header>
             {/* Add the Stockachoo favicon here  */}
             <div class="header-container">
@@ -54,10 +52,9 @@ function App() {
                     <Route path="/" element={<HomePage />} />  {/*setTravel={setTravelToEdit}*/}
                     <Route path="/topics-page" element = {<TopicsPage/>}/>
                     <Route path="/travel-journal" element = {<TravelsPage setTravel={setTravelToEdit} />}/>
+                    <Route path="/summary" element = {<Summary/>} />
                  
                     {/* Use these if your schema requires LONG data input: */}
-                    <Route path="/create" element={<AddTravelPageTable />} /> 
-                    <Route path="/update" element={<EditTravelPageTable travelToEdit={travel} />} />
 
                     
                 </Routes>

@@ -1,20 +1,25 @@
 {
-  "name": "travel-experience-backend",
+  "name": "microservice-for-backend",
   "version": "2023",
-  "description": "The backend for some of my travel experiences.",
-  "main": "travel-controller.mjs",
+  "description": "The backend stock picking application",
+  "main": "microBackEnd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon travel-controller.mjs"
+    "start": "nodemon microBackEnd.js"
   },
   "author": "Christian McKinnon",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.10.3",
+    "axios": "^1.6.7",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongodb": "^6.3.0",
     "mongoose": "^6.9.1",
     "nodemon": "^3.0.1",
-    "rest": "^2.0.0"
+    "rest": "^2.0.0",
+    "supertest": "^6.3.4"
   }
 }

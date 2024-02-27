@@ -30,8 +30,6 @@ function TravelsPage({ setTravel }) {
                         <p>This FAQ section will be continually updated, so please check back to potential updates!</p>
                     </li>
                 </ul>
-
-
         </article>  
         </p>
         </>
