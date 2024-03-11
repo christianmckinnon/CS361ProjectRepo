@@ -1,3 +1,5 @@
+// Navigation.js is used to route our Navigation Links: My Portfolio, About and Logout
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -10,10 +12,11 @@ function Navigation() {
     return null; // Render nothing if the path is the homepage or login page
   }
 
+  // Links to the My Portfolio, About, and Logout Pages
   return (
     <nav>
-        <Link to= "/topics-page">My Portfolio</Link>
-        <Link to= "/travel-journal">About</Link>  
+        <Link to= "/my-portfolio">My Portfolio</Link>
+        <Link to= "/about-help">About</Link>  
         <Link to= "/">Logout</Link>
       </nav>
   );

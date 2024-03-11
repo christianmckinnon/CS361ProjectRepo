@@ -1,3 +1,6 @@
+// MyPortfolio.js represents "My Stock Picks" and has a form to input 3 Stock Tickers
+// This page requests data from the microservice through handleConfirm (the Submit button)
+
 // Here we require React for our state variables, ConfirmationModal for the confirmation pop-up, useNaviagte to route to other pages
 import React, { useState } from 'react';
 import ConfirmationModal from '../components/ConfirmationModal';
@@ -6,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // This is used for communicating with RabbitMQ from the backend folder
 
 // A function to set values for each of the Stock Tickers a user inputs
-function TopicsPage() {
+function MyPortfolio() {
     const navigate = useNavigate(); 
     const [stock1, setStock1] = useState('');
     const [stock2, setStock2] = useState('');
@@ -24,7 +27,7 @@ function TopicsPage() {
         // Perform submission logic here
         try {
             const stocks = [stock1, stock2, stock3];
-            const response = await axios.post('http://localhost:3000/api/stocks', { stocks });
+            const response = await axios.post('http://localhost:3000/api/stocks', { stocks });  // Connect to the microservice here
             const data = response.data; // Assuming the response contains stock symbols and sectors
             console.log('Message sent to RabbitMQ backend:', data);
             // Navigate to Summary page and pass both sets of data
@@ -96,4 +99,4 @@ function TopicsPage() {
     );
 }
 
-export default TopicsPage;
+export default MyPortfolio;

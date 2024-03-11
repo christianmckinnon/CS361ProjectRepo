@@ -1,9 +1,10 @@
-// Stockachoo: Baorong Luo and Christian McKinnon
-// An Independent Microservice Implementation that listens for a Submit request from the "My Stock Picks Form"
-// CS 361, 2/21/2024
-// Citation: Stock Symbols and Sector data are fetched from sp500.csv from DataHub
-// Title: "S&P 500 Companies with Financial Information"
-// https://datahub.io/core/s-and-p-500-companies#data
+/*
+Stockachoo: Baorong Luo and Christian McKinnon, CS 361, 3/10/2024
+An Independent Microservice Implementation that listens for a Submit request from the "My Stock Picks Form"
+Citation: Stock Symbols and Sector data are fetched from sp500.csv from DataHub
+Title: "S&P 500 Companies with Financial Information"
+Link: https://datahub.io/core/s-and-p-500-companies#data
+*/
 
 // Here we require express, amplib,fs, csv-parser, and cors
 const express = require('express');
@@ -17,8 +18,7 @@ const app = express();
 const rabbitMQUrl = 'amqp://localhost';
 const requestQueue = 'stock_info_requests';
 const csvFP = 'sp500.csv';
-// Global variable to store stock data
-const stockData = {};
+const stockData = {};  // Global variable to store stock data
 
 // For use in parsing JSON and cors
 app.use(express.json());
@@ -55,7 +55,7 @@ async function startMicroservice() {
     }
 }
 
-// An asych function that gets the Sector data from the CSV
+// An async function that gets the Sector data from the CSV
 async function fetchSectors(stockSymbols) {
     const sectors = {};
     return new Promise((resolve, reject) => {
@@ -76,7 +76,7 @@ async function fetchSectors(stockSymbols) {
     });
 }
 
-// Define endpoint to receive stock requests from frontend
+// Define endpoint to receive and send stock requests from / to frontend
 app.post('/api/stocks', async (req, res) => {
     const { stocks } = req.body;
 
@@ -93,6 +93,7 @@ app.post('/api/stocks', async (req, res) => {
         const connection = await amqp.connect(rabbitMQUrl);
         const channel = await connection.createChannel();
 
+        // stockData is sent back to the frontend using requestQueue via RabbitMQ
         stocks.forEach(async (stockSymbol) => {
             await channel.sendToQueue(requestQueue, Buffer.from(stockSymbol));
         });
@@ -105,9 +106,7 @@ app.post('/api/stocks', async (req, res) => {
     }
 });
 
-// Start the microservice
-startMicroservice();
-
+startMicroservice();  // Start the microservice
 
 // Start the HTTP server
 const PORT = 3000; // Example port

@@ -1,10 +1,11 @@
 // This is our Summary.js and Portfolio Diversification Report page
-// We import React, Link, and useLocation to facilitate communication from the microservice here
+
+// We import React, Link, and useLocation to receive data from the microservice here
 import { React} from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-function Summary({ setTravel }) {
+function Summary() {
     const location = useLocation();
     const { inputStocks, rabbitMQData } = location.state || {};
 
@@ -34,19 +35,12 @@ function Summary({ setTravel }) {
 
     // This function serves to implement our simple algorithm that determines diversification levels
     function calculateDiversification(filteredFinal) {
-        // Define the sectors
-        const sectors = ["Industrials", "Health Care", "Information Technology",
-            "Communication Services", "Consumer Discretionary",
+        const sectors = ["Industrials", "Health Care", "Information Technology","Communication Services", "Consumer Discretionary",
             "Utilities", "Financials", "Materials", "Energy", "Real Estate"];
-    
         let sectorCounts = {};
         let diversificationLevel = '';
-    
-        // Convert filteredFinal into a JSON string
-        const jsonString = JSON.stringify(filteredFinal);
-
-        // Parse the JSON string into a JavaScript object
-        const filteredData = JSON.parse(jsonString);
+        const jsonString = JSON.stringify(filteredFinal);   // Convert filteredFinal into a JSON string
+        const filteredData = JSON.parse(jsonString);  // Parse the JSON string into a JavaScript object
         
         // Count occurrences of each sector
         for (const ticker in filteredData) {
@@ -91,7 +85,7 @@ const diversificationLevel = calculateDiversification(filteredFinal);
                 </p>
             
             </article>  
-            {/* Back button to return to the TopicsPage */}
+            {/* Back button to return to the My Portfolio */}
             
             <Link to="/topics-page">
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>

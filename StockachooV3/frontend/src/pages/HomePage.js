@@ -17,10 +17,10 @@ function HomePage() {
                     <input type="password" id="password" placeholder="Type your password" />
                 </div>
                 <div>
-                <a href="/travel-journal" className="forgot-password">Forgot password?</a>
+                <a href="/about-help" className="forgot-password">Forgot password?</a>
                 </div>
                 <div>
-                <Link to="/topics-page">
+                <Link to="/my-portfolio">
                     <button>Login</button>
                 </Link>  
                 </div>

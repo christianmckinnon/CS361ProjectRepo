@@ -1,12 +1,11 @@
+// AboutHelp is a page that explains to users how to use the site and a little bit about the algorithm
+// used to generate the report.
+
 import { React} from 'react';
 
+function AboutHelp() {
 
-
-
-function TravelsPage({ setTravel }) {
-
-
-    // A simple HTML Page with an unordered list to answer some basic questions
+    // A simple HTML Page with an unordered list to answer some basic FAQs
     return (
         <>
         <p className = "outer-container2">
@@ -23,10 +22,15 @@ function TravelsPage({ setTravel }) {
                     </li>
                     <li>
                         <strong>Question 2:</strong> How does the report work?
-                        <p>The generated report, which reflects the degree of portfolion diversification is based off a a simple algorithm.</p>
+                        <p>The generated report, which reflects the degree of portfolion diversification is based off a simple algorithm
+                            that uses stock sectors to compute diversity.</p>
                     </li>
                     <li>
-                        <strong>Question 3:</strong> How can I get more help?
+                        <strong>Question 3:</strong> Forgot password?
+                        <p>Please contact our tech support to regain access to your account.</p>
+                    </li>
+                    <li>
+                        <strong>Question 4:</strong> Need more help?
                         <p>This FAQ section will be continually updated, so please check back to potential updates!</p>
                     </li>
                 </ul>
@@ -36,4 +40,4 @@ function TravelsPage({ setTravel }) {
     );
 }
 
-export default TravelsPage;
+export default AboutHelp;

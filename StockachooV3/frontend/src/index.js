@@ -1,3 +1,6 @@
+// index.js imports necessary components for app, handles the root element setup,
+// and renders the application in strict mode
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
