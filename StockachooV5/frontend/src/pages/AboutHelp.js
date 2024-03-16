@@ -1,3 +1,13 @@
+/* Stockachoo Portfolio Project for CS361
+Christian McKinnon
+3/16/2024
+Professor Letaw
+
+Code adapted from CS 290 Web Development Portfolio Project by Professor Van Londen
+Citation: OSU Canvas: Assignment 8 ~ Portfolio Frontend (Full Stack MERN)
+https://canvas.oregonstate.edu/courses/1933705/assignments/9345092
+*/
+
 /* AboutHelp is a page that explains to users how to use the site, what to do if they forget
 their password, and a little bit about the algorithm used to generate the report. */
 

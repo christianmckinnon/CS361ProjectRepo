@@ -1,3 +1,12 @@
+/* Christian McKinnon, CS 361, 3/16/2024
+Professor Letaw
+CSS Styles Code Adapted from CS290 Web Development Canvas Module Week 4: Overview-2 Cascading Style Sheets (CSS) 
+
+Citation: https://canvas.oregonstate.edu/courses/1933705/pages/module-4-overview-2?module_item_id=23487342
+  Professor Van Londen, CS 290, Oregon State University, 3/15/2024j
+*/
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

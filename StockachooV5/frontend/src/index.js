@@ -1,3 +1,13 @@
+/* Stockachoo Portfolio Project for CS361
+Christian McKinnon
+3/16/2024
+Professor Letaw
+
+Code adapted from CS 290 Web Development Portfolio Project by Professor Van Londen
+Citation: OSU Canvas: Assignment 8 ~ Portfolio Frontend (Full Stack MERN)
+https://canvas.oregonstate.edu/courses/1933705/assignments/9345092
+*/
+
 // index.js imports necessary components for app, handles the root element setup,
 // and renders the application in strict mode
 

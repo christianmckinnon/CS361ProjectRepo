@@ -6,6 +6,13 @@ Title: "S&P 500 Companies with Financial Information"
 Link: https://datahub.io/core/s-and-p-500-companies#data
 */
 
+/* 
+Code adapted from CS 290 Web Development Portfolio Project by Professor Van Londen
+Citation: OSU Canvas: Assignment 8 ~ Portfolio Frontend (Full Stack MERN)
+https://canvas.oregonstate.edu/courses/1933705/assignments/9345092
+*/
+
+
 // Here we require express, amplib,fs, csv-parser, and cors
 const express = require('express');
 const amqp = require('amqplib');
