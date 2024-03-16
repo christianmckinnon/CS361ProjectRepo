@@ -1,7 +1,3 @@
-/*  ===== MOBILE styles (reside at the top and are inherited by all devices) ===== */
-/*  ===== See tablet, desktop, and print @media queries at the bottom. */
-
-
 /*   ----- Imports  -----  */
   /* @import 'node_modules/modern-normalize/modern-normalize.css';  npm install modern-normalize  Resets elements for browser consistency.  https://www.npmjs.com/package/modern-normalize */         
   /* @import "component1.css";   Component-specific stylesheets, if any.   */
@@ -42,7 +38,6 @@
     max-width: 960px;
   }
 
-  
   /*  ----- Page layout blocks -----  */
   header {
     background-color: var(--white);
@@ -66,7 +61,6 @@
   }
 
   /* HEADER adding HELP ICON */
-
   .needHelp {
     padding-left: 80px; 
     background-image: url('images/need_help.png'); 
@@ -130,7 +124,6 @@
   display: inline;
 
 }
-
 
 /* Styles for login form elements */
 .outer-container2 div {
@@ -263,78 +256,9 @@
 }
 .faq2 {
   text-align: left;
-}
+}  
 
-   /* Align the center and set the font-size for the Gallery page */
-  .gallery-main{
-    text-align: center;
-    font-size: 1.3em;
-  }
-
-  .order-main{
-    text-align: center;
-    font-size: 1.3em;
-  }
-
-  .staff-main{
-    text-align: center;
-    font-size: 1.3em;
-  }
-
-  .staffClass {
-    text-align: left;
-    box-sizing: border-box;
-    flex-wrap: wrap;
-    display: flex;
-  }
-  .staffClass p {
-    margin-top: 10px;
-    width: 500px;
-  }
-
-/* ASIDE for the STAFF Page */
-  aside {
-    margin-top: 10px;
-    margin-left: auto;
-    width: 360px;
-    text-align: center;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    border: 2px solid darkblue;
-  }
-
-  aside p {
-    text-align: left;
-    box-sizing: border-box;
-    margin: auto;
-    width: 360px;
-    font-size: 1em;
-    padding: 1%;
-  }
-  
-
-  /* Align the center and set the font-size for the Contact page */
-  .contact-main{
-    text-align: center;
-    font-size: 1.3em;
-  }
-
-  /* Create a light-green background for the response form */
-  .contact-reponse{
-    background-color: var(--blue);
-  }
-
-  /* Left align the paragraphs in the response form */
-  .contact-response p{
-    text-align: left;
-  }
-
-  /* Reduce the margin between the description and contact form */
-  .contacts{
-    margin-bottom:-30px;
-  }
-
-  /* Set the section to light-green */
+  /* Set the section to blue */
   section {
     background-color: var(--blue);
     padding: 2%;
@@ -344,11 +268,6 @@
     margin-top: 20px;
     border-top: 2px solid var(--blue);
   }
-
-    #topic1 {}
-    #topic2 {}
-  div {}
-
 
   /* Style and formatting for the footer */
   footer {
@@ -362,8 +281,7 @@
   }
   
   /* ----- Anchors ----- Text links */
-  a {}
-  /* Set the color to tan for link */
+  /* Set the color to black for link */
   a:link {
     color: var(--black);
     text-decoration: none; 
@@ -374,8 +292,6 @@
     color: var(--tan);
     
   }
-  a:active {}
-  a:visited {}
   
   /*  ----- Navigation ----- Override text links for navigation only.  */
   nav {
@@ -417,7 +333,6 @@
   max-height: 60px; /* Maximum height for two rows (height + margin) */
 }
 
-
 /* Navigation for local class tag */
   a.local {
     background-color: #05A;
@@ -429,7 +344,6 @@
     line-height: 1;
     margin-right: 3px;
     margin-bottom: 3px;
-    
     padding: .5%;
     text-decoration: none;
     vertical-align: middle;
@@ -444,12 +358,6 @@
   }
   
   /*  -----  Typography  ----- */
-  p {}
-  br {}
-  ol, ul, dl {}
-  li {}
-  dt {}
-  dd {}
   
   /* Global styles for headers */
   h1, h2, h3, h4, h5, h6 {
@@ -460,52 +368,6 @@
     font-family: 'Lemonada', sans-serif;
     color: var(--blue);
   }
-  h2 {}
-  h3 {}
-  h4 {}
-  h5 {}
-  h6 {}
-  
-  abbr {}
-  acronym {}
-  address {}
-  blockquote {}
-    q {}
-    cite {}
-  em {}
-  hr {}
-  mark {}
-  s {}
-  span {}
-  strong {}
-  sub {}
-  sup {}
-  time {}
-  
-  /*  ----- Coding or instructional typography ----- */
-  pre {}
-  code {}
-  kbd {}
-  samp {}
-  var {}
-  del {} 
-  ins {}
-  
-  /*  ----- Table ----- */
-  table {}
-  caption {}
-  thead {}
-  tbody {}
-  tfoot {}
-  tr {}
-    tr:nth-child(even) {}
-  th {}
-  td {}
-    td:nth-child(1) {}
-  colgroup {}
-  data {}
-  datalist {}
-
   
   /*  ----- Form ----- */
   /* Configure the styles for the contact form */
@@ -531,7 +393,7 @@
     font-size: 1.1em;
     font-weight: bold;
   }
-  /* Set the label color to dark-green */
+  /* Set the label color to black */
   label {
     margin-top: 10px;
     color: var(--black);
@@ -549,7 +411,6 @@
   label.moreinfo{
     font-weight: bold;
   }
-
 
   /* Configure style settings for the submission button */
   button {
@@ -605,67 +466,6 @@
   display: inline-block;
   margin-right: 5px;
 }
-
-/* PET TABLE Styles */
-/* Configure the column spacing for the order form table */
-#petTable {
-  border-collapse: collapse;
-  border-spacing: 10px;
-  margin-bottom: 40px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2em;
-}
-
-
-/* Configure order form radio buttons such that they are displayed inline */
-#petTable input[type = "radio"] {
-  display: inline-block;
-  margin-right: 5px;
-  width: 100%;
-  
-}
-
-/* Configure the caption element such that it is left-aligned */
-#petTable caption {
-  text-align: left;
-  padding: .5% 0;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/* Configure column headers in the order form table */
-#petTable thead th {
-  font-weight: bold;
-  font-size: 1.3em;
-  height: 35px;
-  text-align: center;
-  width: 14%;
-  
-}
-
-/* Style the lines between rows */
-#petTable tr td {
-  min-width: 140px;
-  border-bottom: 2px solid darkblue;
-  padding: 1%;
-  font-size: .8em;
-  font-weight: 400;
-}
-
-/* Style the background of the column headers */
-#petTable tr th {
-  background-color: var(--tan);
-  padding:.5%;
-  min-width: 140px;
-  min-width: 14%;
-}
-
-/* Align the prices in the middle */
-#petTable td:nth-child(3) {text-align:center;}
-#petTable td:nth-child(5) {text-align:center;}
-#petTable td:nth-child(6) {text-align:center;}
-
-
 
 /* Configure article NEW styles */
  .newHeaders {
@@ -725,83 +525,6 @@ input {
   margin-bottom: 30px; /* Add margin below the label */
 }
 
-/* STAFF TABLE Styles */
-/* Configure the column spacing for the order form table */
-#staffTable {
-  border-collapse: collapse;
-  border-spacing: 15px;
-  margin-bottom: 40px;
-}
-
-table img {
-  margin-left:auto;
-  margin-right: auto;
-  border: 1px solid var(--black);
-  width: 120px;
-}
-
-/* Configure style settings for staff button */
-.staffButton{
-  background-color: skyblue;
-  color: var(--black);
-  padding: 1.5%;
-  border: 2px solid var(--black);
-  font-weight: bold;
-  font-size: 1.2em;
-  display:inline;
-  justify-content: left;
-  margin-top: 50px;
-  margin-bottom: 10px;
-  margin-right: auto;
-  border-radius: 5px;
-}
-
-.staffButton:hover{
-  background-color: var(--black);
-  color: skyblue;
-  cursor: pointer;
-}
-
-/* Configure the caption element such that it is left-aligned */
-#staffTable caption {
-  text-align: left;
-  padding: .5% 0;
-  margin-bottom: 15px;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-/* Configure column headers in the order form table */
-#staffTable thead th {
-  font-weight: bold;
-  font-size: 1.1em;
-  height: 35px;
-  text-align: center;
-  width: 260px;
-}
-
-/* Style the lines between rows */
-#staffTable tr td {
-  min-width: 180px;
-  border-bottom: 2px solid darkblue;
-  padding: 1%;
-  font-size: .8em;
-  font-weight: 400;
-  justify-content: center;
-}
-
-/* Style the background of the column headers */
-#staffTable tr th {
-  background-color: var(--tan);
-  padding:.5%;
-  min-width: 200px;
-}
-
-/* Align all elements in the table such that they are centered */
-#staffTable td {
-  text-align:center;
-}
-
 /* Configure Styles for the REACT ICONS */
  .iconSize {
   font-size: 20px;
@@ -817,8 +540,6 @@ table img {
     border-radius: 5px;
     margin: 10px 10px 10px 10px;
   }
-    optgroup {}
-    option {}
 
   /* Configure style settings for textarea for user input */
   textarea {
@@ -835,30 +556,11 @@ table img {
     border: 1px solid var(--blue);
 
   }
-  output {}
-  meter {}
-  progress {}
 
   /* Configure left-align style for contacts class in main*/
   .contacts{
     text-align: left;
   }
-  
-  
-  /* ----- Media ----- */
-  /* Width specifications for images */
-figure {}
-figcaption {}
-figure img {}
-
-  svg {}
-  picture {}
-    source {}
-  iframe {}
-  video {}
-  audio {}
-  embed {}
-  object {}
   
   /*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
 /* Here we use display: flex and row wrap to ensure the images display on the same row */
@@ -871,7 +573,6 @@ figure img {}
   width: 320px;
   margin:.75%;
   padding:0;
-  
 }
 
 .gallery img {
@@ -887,26 +588,6 @@ figure img {}
   display: block;
   padding: 1%;
 }
-
-  .floatright {}
-  .floatleft {}
-  .center-middle {}
-  
-  .ten {}
-  .twenty {}
-  .thirty {}
-  .forty {}
-  .fifty {}
-  .sixty {}
-  .seventy {}
-  .eighty {}
-  
-  .radius {}
-  .circle {}
-  .boxshadow {}
-  .tshadow {} 
-  .gradient {}
-  .shape {}
   
   @keyframes App-logo {}
   

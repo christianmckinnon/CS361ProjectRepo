@@ -30,29 +30,29 @@ function Summary() {
     }
 
     const handleGoBack = () => {
-        // Handle go back to return to the "My Portfolio Page"
+        // Button to return to the "My Portfolio Page"
     };
 
-    // This function serves to implement our simple algorithm that determines diversification levels
-    function calculateDiversification(filteredFinal) {
+    // This function serves to count occurrences of each sector
+    function countSectorOccurrences(filteredData) {
+        // Assign all possible sectors to the variable, sectors
         const sectors = ["Industrials", "Health Care", "Information Technology","Communication Services", "Consumer Discretionary",
             "Utilities", "Financials", "Materials", "Energy", "Real Estate"];
         let sectorCounts = {};
-        let diversificationLevel = '';
-        const jsonString = JSON.stringify(filteredFinal);   // Convert filteredFinal into a JSON string
-        const filteredData = JSON.parse(jsonString);  // Parse the JSON string into a JavaScript object
-        
-        // Count occurrences of each sector
+        // Count sector occurrences with a for loop
         for (const ticker in filteredData) {
             const sector = filteredData[ticker];
             if (sectors.includes(sector)) {
                 sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
             }
         }
-    
-        // Determine the number of unique sectors
-        const uniqueSectors = Object.keys(sectorCounts).length;
-    
+        return sectorCounts;
+    }
+
+    // This function serves to determine the diversification level based on sector counts
+    function determineDiversificationLevel(sectorCounts) {
+        let diversificationLevel = '';
+        const uniqueSectors = Object.keys(sectorCounts).length; // Determine the number of unique sectors
         if (uniqueSectors === 1) {
             diversificationLevel = 'not diversified';
         } else if (uniqueSectors === 2) {
@@ -60,14 +60,24 @@ function Summary() {
         } else {
             diversificationLevel = 'somewhat diversified';
         }
-    
         return diversificationLevel;
     }
 
-// Assign diversification level
-const diversificationLevel = calculateDiversification(filteredFinal);
+    // This function serves to implement our simple algorithm that determines diversification levels
+    function calculateDiversification(filteredFinal) {
+        const jsonString = JSON.stringify(filteredFinal);   // Convert filteredFinal into a JSON string
+        const filteredData = JSON.parse(jsonString);  // Parse the JSON string into a JavaScript object
+        // Count occurrences of each sector
+        const sectorCounts = countSectorOccurrences(filteredData);
+        // Determine the diversification level based on sector counts
+        const diversificationLevel = determineDiversificationLevel(sectorCounts);
+        return diversificationLevel;
+    }
 
-    // Generate the Diversification report
+    // Assign diversification level
+    const diversificationLevel = calculateDiversification(filteredFinal);
+
+    // Generate the Diversification report in JSX
     return (
         <div className="outer-container2">
             <h2>Your Diversification Report</h2>
@@ -83,16 +93,13 @@ const diversificationLevel = calculateDiversification(filteredFinal);
                     Congratulations and please feel free to continue selecting other combinations of stocks to 
                     determine your level of diversification.
                 </p>
-            
             </article>  
             {/* Back button to return to the My Portfolio */}
-            
-            <Link to="/topics-page">
+            <Link to="/my-portfolio">
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                 <button onClick={handleGoBack}>Go Back</button>
                 </div>
             </Link>
-           
         </div>
     );
 }

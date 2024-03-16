@@ -28,88 +28,58 @@ async function startMicroservice() {
     try {
         const connection = await amqp.connect(rabbitMQUrl);
         const channel = await connection.createChannel();
-
         await channel.assertQueue(requestQueue, { durable: false });
         console.log('Microservice is now running. Listening for messages...');
-
         channel.consume(requestQueue, async (msg) => {
             const stockSymbol = msg.content.toString();
             console.log(`Received request for a certain stock: ${stockSymbol}`);
-
-            try {
-                const stockInfo = await fetchSectors(stockSymbol);
+            try {const stockInfo = await fetchSectors(stockSymbol);
                 console.log('Stock information retrieved:', stockInfo);
-
-                // Store stock information in the global stockData object
-                stockData[stockSymbol] = stockInfo;
-
-                // Acknowledgement of message processing
-                channel.ack(msg);
+                stockData[stockSymbol] = stockInfo; // Store stock information in the global stockData object
+                channel.ack(msg); // "Acknowledgement" of message processing
             } catch (error) {
-                console.error('Error fetching stock info:', error.message);
-                // Handle error and potentially retry message processing
-            }
-        });
-    } catch (error) {
-        console.error('Error connecting to RabbitMQ:', error.message);
-    }
-}
+                console.error('Error fetching stock info:', error.message); }});
+    } catch (error) { console.error('Error connecting to RabbitMQ:', error.message);}}
 
 // An async function that gets the Sector data from the CSV
 async function fetchSectors(stockSymbols) {
     const sectors = {};
     return new Promise((resolve, reject) => {
-        // If the inputs TICKERS match those of the CSV, then we can the sector
         fs.createReadStream(csvFP)
             .pipe(csv())
             .on('data', (row) => {
                 if (stockSymbols === row.Symbol) {
-                    sectors[row.Symbol] = row.Sector;
-                }
-            })
+                    sectors[row.Symbol] = row.Sector;}})
             .on('end', () => {
-                resolve(sectors);
-            })
+                resolve(sectors);})
             .on('error', (error) => {
                 reject(error);
             });
     });
 }
 
-// Define endpoint to receive and send stock requests from / to frontend
+// Define endpoint to receive and send stock requests from and to frontend
 app.post('/api/stocks', async (req, res) => {
     const { stocks } = req.body;
-
-    try {
-        const stockData = {};
+    try {const stockData = {};
         for (const stockSymbol of stocks) {
             const stockInfo = await fetchSectors(stockSymbol);
-            stockData[stockSymbol] = stockInfo;
-        }
-        // Messages are printed to the console to ensure RabbitMQ is sending / receiving data
-        console.log('Stock information retrieved:', stockData);
-
-        // Send stock requests to RabbitMQ
-        const connection = await amqp.connect(rabbitMQUrl);
+            stockData[stockSymbol] = stockInfo; }
+        console.log('Stock information retrieved:', stockData); // Status message showing RabbitMQ is sending / receiving data
+        const connection = await amqp.connect(rabbitMQUrl); // Send stock requests to RabbitMQ
         const channel = await connection.createChannel();
-
-        // stockData is sent back to the frontend using requestQueue via RabbitMQ
         stocks.forEach(async (stockSymbol) => {
-            await channel.sendToQueue(requestQueue, Buffer.from(stockSymbol));
-        });
-
+            await channel.sendToQueue(requestQueue, Buffer.from(stockSymbol));});
         console.log('Stock requests sent to RabbitMQ');
         res.status(200).json({ message: 'Stock requests sent successfully', stockData });
     } catch (error) {
         console.error('Error sending stock requests to RabbitMQ:', error.message);
-        res.status(500).json({ error: 'Failed to send stock requests' });
-    }
-});
+        res.status(500).json({ error: 'Failed to send stock requests' }); }});
 
 startMicroservice();  // Start the microservice
 
 // Start the HTTP server
-const PORT = 3000; // Example port
+const PORT = 3000; // Running on PORT 3000
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

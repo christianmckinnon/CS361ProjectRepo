@@ -1,19 +1,20 @@
-// Import React
+// HomePage.js AKA the "Login Page" is the landing page of the Stockachoo Application
+
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 
-// JS Code to enable HTML
+// JSX Code to Create the Login Form
 function HomePage() {
     return (
         <div className="outer-container">
             <div className="inner-container">
                 <h2>Login to your account</h2>
                 <div>
-                    <label for="username">Username:</label>
+                    <label for="username" style={{ textAlign: 'left' }}>Username:</label>
                     <input type="username" id="username" placeholder="Type your username" />
                 </div>
                 <div>
-                    <label for="password">Password:</label>
+                    <label for="password" style={{ textAlign: 'left' }}>Password:</label>
                     <input type="password" id="password" placeholder="Type your password" />
                 </div>
                 <div>

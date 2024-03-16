@@ -1,11 +1,10 @@
-// MyPortfolio.js represents "My Stock Picks" and has a form to input 3 Stock Tickers
-// This page requests data from the microservice through handleConfirm (the Submit button)
+/* MyPortfolio.js represents "My Stock Picks" and has a form to input 3 Stock Tickers
+This page requests data from the microservice through handleConfirm (the Submit button) */
 
 // Here we require React for our state variables, ConfirmationModal for the confirmation pop-up, useNaviagte to route to other pages
 import React, { useState } from 'react';
 import ConfirmationModal from '../components/ConfirmationModal';
 import { useNavigate } from 'react-router-dom';
-
 import axios from 'axios'; // This is used for communicating with RabbitMQ from the backend folder
 
 // A function to set values for each of the Stock Tickers a user inputs
@@ -19,19 +18,23 @@ function MyPortfolio() {
 
     // Use this to intitiate the pop-up confirmation box when first hitting submit
     const handleSubmit = async () => {
+        // Check if any of the input fields are empty
+        if (!stock1 || !stock2 || !stock3) {
+        // If any input field is empty, do not proceed with submission
+        alert('Please fill out all stock fields');
+        return;
+    }
         setIsModalOpen(true);
     };
     
     // handleConfirm actually sends the request to RabbitMQ once the user selects confirm and receives sector data on the Summary.js page
     const handleConfirm = async () => {
-        // Perform submission logic here
         try {
             const stocks = [stock1, stock2, stock3];
             const response = await axios.post('http://localhost:3000/api/stocks', { stocks });  // Connect to the microservice here
-            const data = response.data; // Assuming the response contains stock symbols and sectors
+            const data = response.data; // Assign the response to data
             console.log('Message sent to RabbitMQ backend:', data);
-            // Navigate to Summary page and pass both sets of data
-            navigate('/Summary', { state: { inputStocks: stocks, rabbitMQData: data } });
+            navigate('/Summary', { state: { inputStocks: stocks, rabbitMQData: data } }); // Data from RabbitMQ sent to the frontend
         } catch (errors) {
             console.error('Error sending message to RabbitMQ:', error);
             setError('Failed to send message to RabbitMQ', error); // Set error state if for some reason we fail to send to RabbitMQ
@@ -39,7 +42,7 @@ function MyPortfolio() {
         setIsModalOpen(false);
     };
 
-    // Begin HTML writeup for input forms here
+    // Begin JSX writeup for input forms here
     return (
 <div className="outer-container2">
     <h2>My Stock Picks</h2>
@@ -55,12 +58,15 @@ function MyPortfolio() {
                 list="stock1list" 
                 placeholder="Enter ticker for stock 1" 
                 value={stock1} 
-                onChange={(e) => setStock1(e.target.value)} 
+                onChange={(e) => setStock1(e.target.value)}
+                required 
             />
             <datalist id="stock1list">
                 <option value="AAPL" />
                 <option value="MSFT" />
                 <option value="TSLA" />
+                <option value="ABBV" />
+                <option value="JPM" />
             </datalist>
         </p>
     </div>
@@ -72,6 +78,7 @@ function MyPortfolio() {
                 placeholder="Enter ticker for stock 2" 
                 value={stock2} 
                 onChange={(e) => setStock2(e.target.value)} 
+                required
             />
         </p>
     </div>
@@ -83,6 +90,7 @@ function MyPortfolio() {
                 placeholder="Enter ticker for stock 3" 
                 value={stock3} 
                 onChange={(e) => setStock3(e.target.value)} 
+                required
             />
         </p>
     </div>

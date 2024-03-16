@@ -1,2 +1,2 @@
 # CS361ProjectRepo
-A repository for my Stockachoo project at OSU CS 361.
+A repository for my Stockachoo Portfolio Project for OSU CS 361.
