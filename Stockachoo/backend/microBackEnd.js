@@ -36,17 +36,27 @@ async function startMicroservice() {
         const connection = await amqp.connect(rabbitMQUrl);
         const channel = await connection.createChannel();
         await channel.assertQueue(requestQueue, { durable: false });
+
         console.log('Microservice is now running. Listening for messages...');
+
         channel.consume(requestQueue, async (msg) => {
             const stockSymbol = msg.content.toString();
             console.log(`Received request for a certain stock: ${stockSymbol}`);
+
             try {const stockInfo = await fetchSectors(stockSymbol);
                 console.log('Stock information retrieved:', stockInfo);
                 stockData[stockSymbol] = stockInfo; // Store stock information in the global stockData object
                 channel.ack(msg); // "Acknowledgement" of message processing
-            } catch (error) {
-                console.error('Error fetching stock info:', error.message); }});
-    } catch (error) { console.error('Error connecting to RabbitMQ:', error.message);}}
+            } 
+            catch (error) {
+                console.error('Error fetching stock info:', error.message); 
+                }
+            });
+        } 
+        catch (error) { 
+            console.error('Error connecting to RabbitMQ:', error.message);
+    }
+}
 
 // An async function that gets the Sector data from the CSV
 async function fetchSectors(stockSymbols) {
@@ -56,7 +66,9 @@ async function fetchSectors(stockSymbols) {
             .pipe(csv())
             .on('data', (row) => {
                 if (stockSymbols === row.Symbol) {
-                    sectors[row.Symbol] = row.Sector;}})
+                    sectors[row.Symbol] = row.Sector;
+                }
+            })
             .on('end', () => {
                 resolve(sectors);})
             .on('error', (error) => {
@@ -71,17 +83,27 @@ app.post('/api/stocks', async (req, res) => {
     try {const stockData = {};
         for (const stockSymbol of stocks) {
             const stockInfo = await fetchSectors(stockSymbol);
-            stockData[stockSymbol] = stockInfo; }
+            stockData[stockSymbol] = stockInfo; 
+        }
+
         console.log('Stock information retrieved:', stockData); // Status message showing RabbitMQ is sending / receiving data
         const connection = await amqp.connect(rabbitMQUrl); // Send stock requests to RabbitMQ
         const channel = await connection.createChannel();
+
         stocks.forEach(async (stockSymbol) => {
-            await channel.sendToQueue(requestQueue, Buffer.from(stockSymbol));});
+            await channel.sendToQueue(requestQueue, Buffer.from(stockSymbol));
+        });
+
         console.log('Stock requests sent to RabbitMQ');
+        
         res.status(200).json({ message: 'Stock requests sent successfully', stockData });
-    } catch (error) {
+    } 
+    catch (error) {
         console.error('Error sending stock requests to RabbitMQ:', error.message);
-        res.status(500).json({ error: 'Failed to send stock requests' }); }});
+
+        res.status(500).json({ error: 'Failed to send stock requests' }); 
+    }
+});
 
 startMicroservice();  // Start the microservice
 
